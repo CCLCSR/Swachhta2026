@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About | Swachhata Pakhwada 2026</title>
+  <meta name="description" content="About Chandan Kumar — the officer behind the Swachhata Pakhwada 2026 digital campaign portal for Central Coalfields Limited." />
+  <style>
+    /* ===== RESET & BASE ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --green:   #1a6b3c;
+      --green2:  #24a45a;
+      --saffron: #e07b2a;
+      --cream:   #fdf6ec;
+      --dark:    #1a1a1a;
+      --gray:    #555;
+      --light:   #f0f4f0;
+      --white:   #ffffff;
+      --radius:  10px;
+      --shadow:  0 4px 18px rgba(0,0,0,0.10);
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: var(--light);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+
+    /* ===== HEADER / NAV ===== */
+    header {
+      background: var(--green);
+      color: var(--white);
+      padding: 0 24px;
+      position: sticky; top: 0; z-index: 100;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+    .nav-inner {
+      max-width: 1100px; margin: auto;
+      display: flex; align-items: center;
+      justify-content: space-between;
+      height: 62px;
+    }
+    .nav-brand span { font-size: 1.05rem; font-weight: 700; letter-spacing: 0.5px; color: #fff; }
+    .nav-brand a { text-decoration: none; color: inherit; }
+    nav a {
+      color: rgba(255,255,255,0.88);
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 500;
+      margin-left: 20px;
+      padding: 4px 0;
+      border-bottom: 2px solid transparent;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    nav a:hover, nav a.active { color: #fff; border-color: var(--saffron); }
+
+    /* ===== BREADCRUMB ===== */
+    .breadcrumb {
+      background: var(--white);
+      border-bottom: 1px solid #e5e5e5;
+      padding: 10px 24px;
+      font-size: 0.82rem;
+      color: var(--gray);
+    }
+    .breadcrumb a { color: var(--green); text-decoration: none; }
+    .breadcrumb a:hover { text-decoration: underline; }
+    .bc-inner { max-width: 1100px; margin: auto; }
+
+    /* ===== HERO ===== */
+    .page-hero {
+      background: linear-gradient(135deg, #0d4a2a 0%, #1a6b3c 50%, #2d8a52 100%);
+      color: var(--white);
+      padding: 52px 24px 44px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .page-hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      pointer-events: none;
+    }
+    .hero-badge {
+      display: inline-block;
+      background: var(--saffron);
+      color: #fff;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 4px 16px;
+      border-radius: 20px;
+      margin-bottom: 14px;
+      position: relative;
+    }
+    .page-hero h1 {
+      font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+      font-weight: 800;
+      margin-bottom: 8px;
+      position: relative;
+    }
+    .page-hero h1 span { color: #f7c948; }
+    .page-hero p {
+      font-size: 1rem;
+      opacity: 0.85;
+      max-width: 520px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    /* ===== LAYOUT ===== */
+    .page-wrap {
+      max-width: 1000px;
+      margin: auto;
+      padding: 44px 24px 72px;
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      gap: 32px;
+      align-items: start;
+    }
+
+    /* ===== PROFILE CARD (left column) ===== */
+    .profile-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      position: sticky;
+      top: 82px;
+    }
+    .profile-photo-area {
+      background: linear-gradient(135deg, var(--green) 0%, #2d8a52 100%);
+      padding: 36px 24px 28px;
+      text-align: center;
+    }
+    .profile-avatar {
+      width: 110px; height: 110px;
+      border-radius: 50%;
+      border: 4px solid rgba(255,255,255,0.5);
+      background: rgba(255,255,255,0.15);
+      margin: 0 auto 16px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 3.2rem;
+      color: #fff;
+      overflow: hidden;
+    }
+    .profile-avatar img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .profile-name {
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+    .profile-title {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.8);
+      line-height: 1.4;
+    }
+    .profile-org {
+      display: inline-block;
+      background: var(--saffron);
+      color: #fff;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 3px 12px;
+      border-radius: 12px;
+      margin-top: 10px;
+      letter-spacing: 0.5px;
+    }
+
+    .profile-details { padding: 20px; }
+    .profile-detail-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 9px 0;
+      border-bottom: 1px solid #f0f0f0;
+      font-size: 0.84rem;
+    }
+    .profile-detail-row:last-child { border-bottom: none; }
+    .detail-icon { font-size: 1rem; flex-shrink: 0; margin-top: 1px; }
+    .detail-label { font-size: 0.72rem; color: var(--gray); font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
+    .detail-value { color: var(--dark); font-weight: 500; }
+
+    .profile-social {
+      padding: 16px 20px;
+      background: #f8fbf8;
+      border-top: 1px solid #eef2ee;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .social-btn {
+      display: flex; align-items: center; gap: 6px;
+      padding: 7px 12px;
+      border-radius: 6px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.2s;
+      border: 2px solid transparent;
+    }
+    .social-btn.linkedin  { background: #0077b5; color: #fff; }
+    .social-btn.linkedin:hover  { background: #005f96; }
+    .social-btn.wa        { background: #25D366; color: #fff; }
+    .social-btn.wa:hover  { background: #1da851; }
+    .social-btn.email     { background: transparent; border-color: var(--green); color: var(--green); }
+    .social-btn.email:hover { background: var(--green); color: #fff; }
+
+    /* ===== MAIN CONTENT (right column) ===== */
+    .about-section {
+      background: var(--white);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 28px 30px;
+      margin-bottom: 22px;
+    }
+    .about-section-title {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--green);
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .divider {
+      width: 40px; height: 3px;
+      background: var(--saffron);
+      border-radius: 2px;
+      margin: 6px 0 18px;
+    }
+    .about-section p {
+      font-size: 0.92rem;
+      color: #444;
+      line-height: 1.75;
+      margin-bottom: 12px;
+    }
+    .about-section p:last-child { margin-bottom: 0; }
+
+    /* ===== RESPONSIBILITIES ===== */
+    .resp-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 4px;
+    }
+    .resp-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      background: #f6faf7;
+      border-radius: 8px;
+      padding: 12px 14px;
+      border-left: 3px solid var(--green);
+    }
+    .resp-icon { font-size: 1.3rem; flex-shrink: 0; }
+    .resp-text { font-size: 0.85rem; font-weight: 600; color: var(--dark); line-height: 1.35; }
+    .resp-sub  { font-size: 0.76rem; color: var(--gray); margin-top: 2px; font-weight: 400; }
+
+    /* ===== ACHIEVEMENTS TIMELINE ===== */
+    .timeline { position: relative; padding-left: 28px; margin-top: 4px; }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 7px; top: 6px; bottom: 6px;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--green), var(--saffron));
+      border-radius: 2px;
+    }
+    .tl-item {
+      position: relative;
+      margin-bottom: 20px;
+    }
+    .tl-item:last-child { margin-bottom: 0; }
+    .tl-dot {
+      position: absolute;
+      left: -24px; top: 4px;
+      width: 14px; height: 14px;
+      border-radius: 50%;
+      background: var(--green);
+      border: 2px solid #fff;
+      box-shadow: 0 0 0 2px var(--green);
+    }
+    .tl-dot.saffron {
+      background: var(--saffron);
+      box-shadow: 0 0 0 2px var(--saffron);
+    }
+    .tl-year {
+      font-size: 0.72rem;
+      font-weight: 800;
+      color: var(--saffron);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 2px;
+    }
+    .tl-title {
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 3px;
+    }
+    .tl-desc {
+      font-size: 0.84rem;
+      color: var(--gray);
+      line-height: 1.5;
+    }
+
+    /* ===== PORTAL STATS BAND ===== */
+    .portal-stats {
+      background: linear-gradient(135deg, var(--green) 0%, #2d8a52 100%);
+      border-radius: var(--radius);
+      padding: 24px 28px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 4px;
+      margin-bottom: 22px;
+      color: #fff;
+    }
+    .ps-item { text-align: center; padding: 8px 4px; }
+    .ps-num  { font-size: 1.8rem; font-weight: 800; color: #f7c948; line-height: 1; }
+    .ps-lbl  { font-size: 0.72rem; opacity: 0.82; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; margin-top: 4px; }
+
+    /* ===== PHILOSOPHY QUOTE ===== */
+    .philo-block {
+      background: var(--cream);
+      border-left: 4px solid var(--saffron);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 20px 24px;
+      margin-bottom: 22px;
+    }
+    .philo-block blockquote {
+      font-style: italic;
+      font-size: 1rem;
+      color: #5a3a10;
+      line-height: 1.75;
+      margin-bottom: 8px;
+    }
+    .philo-block cite {
+      font-size: 0.8rem;
+      color: var(--saffron);
+      font-style: normal;
+      font-weight: 700;
+    }
+
+    /* ===== SKILLS TAGS ===== */
+    .skills-wrap { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
+    .skill-tag {
+      background: #eaf3ee;
+      color: var(--green);
+      border: 1px solid #c0dcc8;
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 5px 12px;
+      border-radius: 14px;
+    }
+
+    /* ===== PORTAL PAGES TABLE ===== */
+    .pages-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin-top: 8px; }
+    .pages-table th {
+      background: #f0f6f2;
+      color: var(--green);
+      font-weight: 700;
+      padding: 9px 12px;
+      text-align: left;
+      border-bottom: 2px solid #d0e0d4;
+    }
+    .pages-table td {
+      padding: 9px 12px;
+      border-bottom: 1px solid #f0f0f0;
+      color: #444;
+      vertical-align: top;
+    }
+    .pages-table tr:last-child td { border-bottom: none; }
+    .pages-table tr:hover td { background: #f8fbf8; }
+    .new-tag {
+      background: var(--saffron);
+      color: #fff;
+      font-size: 0.65rem;
+      font-weight: 800;
+      padding: 1px 7px;
+      border-radius: 8px;
+      margin-left: 6px;
+      vertical-align: middle;
+    }
+
+    /* ===== CTA SECTION ===== */
+    .cta-section {
+      background: var(--green);
+      border-radius: var(--radius);
+      padding: 28px 30px;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .cta-section h3 { font-size: 1.1rem; font-weight: 800; margin-bottom: 4px; }
+    .cta-section p  { font-size: 0.88rem; opacity: 0.85; }
+    .btn { display: inline-block; padding: 10px 22px; border-radius: 6px; font-size: 0.9rem; font-weight: 700; text-decoration: none; transition: all 0.2s; }
+    .btn-white   { background: #fff; color: var(--green); }
+    .btn-white:hover   { background: #f0f6f2; }
+    .btn-saffron { background: var(--saffron); color: #fff; }
+    .btn-saffron:hover { background: #c86a20; }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: var(--dark);
+      color: rgba(255,255,255,0.7);
+      text-align: center;
+      padding: 28px 24px;
+      font-size: 0.85rem;
+    }
+    footer strong { color: #fff; }
+    footer a { color: var(--saffron); text-decoration: none; }
+    .footer-links { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin: 10px 0; }
+    .footer-links a { color: rgba(255,255,255,0.6); font-size: 0.82rem; }
+    .footer-links a:hover { color: var(--saffron); }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 820px) {
+      .page-wrap { grid-template-columns: 1fr; }
+      .profile-card { position: static; }
+      .resp-grid { grid-template-columns: 1fr; }
+      .portal-stats { grid-template-columns: repeat(2, 1fr); }
+      nav { display: none; }
+    }
+    @media (max-width: 480px) {
+      .portal-stats { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="nav-inner">
+    <div class="nav-brand">
+      <a href="index.html"><span>🌿 Swachhata Pakhwada 2026</span></a>
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="calendar.html">Calendar</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="news.html">News</a>
+      <a href="areas.html">Areas</a>
+      <a href="reports.html">Reports</a>
+      <a href="about.html" class="active">About</a>
+    </nav>
+  </div>
+</header>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb">
+  <div class="bc-inner">
+    <a href="index.html">Home</a> › About
+  </div>
+</div>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="hero-badge">Portal Creator</div>
+  <h1>About <span>Chandan Kumar</span></h1>
+  <p>The officer behind CCL's Swachhata Pakhwada 2026 digital campaign portal</p>
+</section>
+
+<!-- MAIN LAYOUT -->
+<div class="page-wrap">
+
+  <!-- ── LEFT: PROFILE CARD ── -->
+  <aside>
+    <div class="profile-card">
+
+      <!-- Photo & Name -->
+      <div class="profile-photo-area">
+        <div class="profile-avatar">
+          <!-- Replace with actual photo:
+               <img src="images/chandan-kumar.jpg" alt="Chandan Kumar" />
+               If no photo, the emoji stays. -->
+          👤
+        </div>
+        <div class="profile-name">Chandan Kumar</div>
+        <div class="profile-title">Sr. Manager (Environment &amp; Safety)<br>Central Coalfields Limited</div>
+        <span class="profile-org">CCL · Kathara Area</span>
+      </div>
+
+      <!-- Key Details -->
+      <div class="profile-details">
+        <div class="profile-detail-row">
+          <span class="detail-icon">🏢</span>
+          <div>
+            <div class="detail-label">Organisation</div>
+            <div class="detail-value">Central Coalfields Limited (CCL)<br><span style="font-size:0.78rem;color:var(--gray);">A Miniratna PSU under Coal India Ltd</span></div>
+          </div>
+        </div>
+        <div class="profile-detail-row">
+          <span class="detail-icon">📍</span>
+          <div>
+            <div class="detail-label">Area / Location</div>
+            <div class="detail-value">Kathara Area, Jharkhand</div>
+          </div>
+        </div>
+        <div class="profile-detail-row">
+          <span class="detail-icon">🎯</span>
+          <div>
+            <div class="detail-label">Role in Campaign</div>
+            <div class="detail-value">Swachhata Pakhwada Nodal Officer<br>Portal Designer &amp; Campaign Coordinator</div>
+          </div>
+        </div>
+        <div class="profile-detail-row">
+          <span class="detail-icon">🌿</span>
+          <div>
+            <div class="detail-label">Focus Areas</div>
+            <div class="detail-value">Environment · Safety · Sustainability<br>Community Outreach · Digital Governance</div>
+          </div>
+        </div>
+        <div class="profile-detail-row">
+          <span class="detail-icon">📅</span>
+          <div>
+            <div class="detail-label">Campaign Duration</div>
+            <div class="detail-value">16 – 30 June 2026 (15 Days)</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Social Links -->
+      <div class="profile-social">
+        <a href="https://linkedin.com/in/chandankumar" target="_blank" class="social-btn linkedin">
+          <span>in</span> LinkedIn
+        </a>
+        <a href="https://wa.me/?text=Swachhata%20Pakhwada%202026%20Portal%20-%20https://chandancae.github.io/Swachhta2026/"
+           target="_blank" class="social-btn wa">📤 Share</a>
+        <a href="mailto:chandan@ccl.gov.in" class="social-btn email">✉️ Email</a>
+      </div>
+
+    </div>
+  </aside>
+
+  <!-- ── RIGHT: CONTENT SECTIONS ── -->
+  <main>
+
+    <!-- 1. About -->
+    <div class="about-section">
+      <div class="about-section-title">👋 About Me</div>
+      <div class="divider"></div>
+      <p>I am Chandan Kumar, serving as Sr. Manager (Environment &amp; Safety) at Central Coalfields Limited (CCL), Kathara Area, Jharkhand. With a deep commitment to environmental stewardship and community well-being, I have been actively coordinating CCL's Swachhata Pakhwada campaign since its inception as a flagship national cleanliness initiative.</p>
+      <p>My work spans the full lifecycle of environmental compliance and community engagement — from managing environmental impact assessments at colliery sites to designing grassroots sanitation campaigns that reach schools, villages, PHCs, and Anganwadis across the mining belt of Jharkhand.</p>
+      <p>This portal was conceived, planned, and built as a one-stop digital governance tool for Swachhata Pakhwada 2026, enabling real-time tracking of activities across 14 CCL areas, transparent impact reporting, and sustained community engagement well beyond the campaign's 15-day window.</p>
+    </div>
+
+    <!-- 2. Philosophy Quote -->
+    <div class="philo-block">
+      <blockquote>
+        "माता भूमिः पुत्रोऽहं पृथिव्याः" — The Earth is our Mother; we are her sons and daughters.<br>
+        <span style="font-style:normal;font-size:0.88rem;color:#7a5020;">Swachhata is not a campaign. It is our dharma — the ancient duty of every citizen to protect the earth that sustains us.</span>
+      </blockquote>
+      <cite>— Atharva Veda, Prithvi Sukta &nbsp;|&nbsp; The guiding philosophy of Swachhata Pakhwada 2026</cite>
+    </div>
+
+    <!-- 3. Key Responsibilities -->
+    <div class="about-section">
+      <div class="about-section-title">⚙️ Key Responsibilities</div>
+      <div class="divider"></div>
+      <div class="resp-grid">
+        <div class="resp-item">
+          <div class="resp-icon">🌿</div>
+          <div>
+            <div class="resp-text">Environment Management</div>
+            <div class="resp-sub">EIA, green belt development, dust suppression, air &amp; water quality monitoring at Kathara mines</div>
+          </div>
+        </div>
+        <div class="resp-item">
+          <div class="resp-icon">🦺</div>
+          <div>
+            <div class="resp-text">Safety Compliance</div>
+            <div class="resp-sub">Statutory safety audits, incident reporting, and compliance with DGMS regulations across the area</div>
+          </div>
+        </div>
+        <div class="resp-item">
+          <div class="resp-icon">🌿</div>
+          <div>
+            <div class="resp-text">Swachhata Pakhwada Coordination</div>
+            <div class="resp-sub">Nodal officer for the 15-day campaign — activity planning, area coordination, portal management</div>
+          </div>
+        </div>
+        <div class="resp-item">
+          <div class="resp-icon">🏘️</div>
+          <div>
+            <div class="resp-text">Community Outreach</div>
+            <div class="resp-sub">CSR initiatives, school sanitation programmes, village cleanliness drives, SHG engagement</div>
+          </div>
+        </div>
+        <div class="resp-item">
+          <div class="resp-icon">💻</div>
+          <div>
+            <div class="resp-text">Digital Governance</div>
+            <div class="resp-sub">Designing web portals for institutional reporting and public communication — 2025 &amp; 2026 editions</div>
+          </div>
+        </div>
+        <div class="resp-item">
+          <div class="resp-icon">📊</div>
+          <div>
+            <div class="resp-text">Impact Reporting</div>
+            <div class="resp-sub">Campaign data compilation, ESG documentation, annual reports for Ministry of Coal submission</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4. Portal Stats -->
+    <div class="portal-stats">
+      <div class="ps-item">
+        <div class="ps-num">18</div>
+        <div class="ps-lbl">Pages Built</div>
+      </div>
+      <div class="ps-item">
+        <div class="ps-num">100+</div>
+        <div class="ps-lbl">Activities Tracked</div>
+      </div>
+      <div class="ps-item">
+        <div class="ps-num">14</div>
+        <div class="ps-lbl">Areas Covered</div>
+      </div>
+      <div class="ps-item">
+        <div class="ps-num">2</div>
+        <div class="ps-lbl">Portals Built<br><span style="font-size:0.65rem;opacity:0.7;">(2025 &amp; 2026)</span></div>
+      </div>
+    </div>
+
+    <!-- 5. Campaign Achievements -->
+    <div class="about-section">
+      <div class="about-section-title">🏆 Campaign Achievements</div>
+      <div class="divider"></div>
+      <div class="timeline">
+
+        <div class="tl-item">
+          <div class="tl-dot saffron"></div>
+          <div class="tl-year">2026 — Current Campaign</div>
+          <div class="tl-title">Swachhata Pakhwada 2026 — 14 Areas, 100+ Activities</div>
+          <div class="tl-desc">Designed and built a full 18-page digital portal with interactive activity calendar, live photo gallery, daily news updates, area-wise tracking, and an AI-assisted daily update workflow. Campaign running June 16–30, 2026 with 3,897+ participants across 14 CCL areas.</div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-year">2025</div>
+          <div class="tl-title">Swachhata Pakhwada 2025 — First Digital Campaign Portal</div>
+          <div class="tl-desc">Conceptualised and launched CCL Kathara's first dedicated Swachhata Pakhwada web portal — a 15-page static site showcasing 10 campaign themes, 1,400+ trees planted, 4,100 saplings managed, 1,000+ participants, and 50+ locations. Hosted permanently at chandancae.github.io/Swachhta/</div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-year">Ongoing</div>
+          <div class="tl-title">Green Belt &amp; Tree Plantation Drives</div>
+          <div class="tl-desc">Managed annual plantation programmes across Kathara Area mines — contributing to green belt development around opencast sites, dust suppression, and biodiversity enhancement in the Jharkhand mining belt.</div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-year">Ongoing</div>
+          <div class="tl-title">Community Sanitation &amp; WASH Initiatives</div>
+          <div class="tl-desc">Coordinated cleaning of schools, Anganwadis, PHCs, and village public spaces; distribution of sanitation kits, dustbins, and jute bags; Nukkad Natak performances for hygiene awareness across project-affected communities.</div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- 6. Portal Pages -->
+    <div class="about-section">
+      <div class="about-section-title">🖥️ About This Portal</div>
+      <div class="divider"></div>
+      <p>The Swachhata Pakhwada 2026 portal was built entirely as a static HTML/CSS/JavaScript website — hosted for free on GitHub Pages with zero backend maintenance. Every page is hand-coded to ensure fast load times even on mobile data connections in the field.</p>
+      <table class="pages-table">
+        <thead>
+          <tr>
+            <th>Page</th>
+            <th>Purpose</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>🏠 Homepage</td><td>Campaign overview, progress tracker, theme &amp; area navigation</td><td>✅ Live</td></tr>
+          <tr><td>📅 Activity Calendar <span class="new-tag">NEW</span></td><td>Filterable day-by-day ledger of all 100+ activities across 14 areas</td><td>✅ Live</td></tr>
+          <tr><td>📸 Photo Gallery <span class="new-tag">FIXED</span></td><td>Area &amp; theme filtered gallery with lightbox viewer</td><td>✅ Live</td></tr>
+          <tr><td>📰 News &amp; Updates <span class="new-tag">FIXED</span></td><td>Daily campaign dispatches — Days 1–9 published</td><td>✅ Live</td></tr>
+          <tr><td>🗺️ Areas <span class="new-tag">NEW</span></td><td>Complete activity schedules for all 10 named areas</td><td>✅ Live</td></tr>
+          <tr><td>📁 Reports <span class="new-tag">NEW</span></td><td>Live data links + PDF impact report (post-campaign)</td><td>✅ Live</td></tr>
+          <tr><td>👤 About</td><td>This page</td><td>✅ Live</td></tr>
+          <tr><td>📢 10 Theme Pages</td><td>Dedicated page per official campaign theme with area breakdowns</td><td>🔄 Building</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 7. Skills & Tools -->
+    <div class="about-section">
+      <div class="about-section-title">🛠️ Tools & Technologies Used</div>
+      <div class="divider"></div>
+      <div class="skills-wrap">
+        <span class="skill-tag">HTML5</span>
+        <span class="skill-tag">CSS3</span>
+        <span class="skill-tag">Vanilla JavaScript</span>
+        <span class="skill-tag">GitHub Pages</span>
+        <span class="skill-tag">Git Version Control</span>
+        <span class="skill-tag">Responsive Design</span>
+        <span class="skill-tag">AI-Assisted Content</span>
+        <span class="skill-tag">Google Forms</span>
+        <span class="skill-tag">WhatsApp Integration</span>
+        <span class="skill-tag">Zero Backend</span>
+        <span class="skill-tag">SEO Metadata</span>
+        <span class="skill-tag">WebP Image Optimisation</span>
+      </div>
+    </div>
+
+    <!-- 8. CTA -->
+    <div class="cta-section">
+      <div>
+        <h3>Follow the Campaign Live</h3>
+        <p>The portal is updated every evening with the day's activities, photos, and highlights.</p>
+      </div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;">
+        <a href="calendar.html" class="btn btn-white">📅 View Calendar</a>
+        <a href="https://wa.me/?text=Check%20out%20Swachhata%20Pakhwada%202026%20-%20https://chandancae.github.io/Swachhta2026/"
+           target="_blank" class="btn btn-saffron">📤 Share Portal</a>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p><strong>Swachhata Pakhwada 2026</strong> &nbsp;|&nbsp; Central Coalfields Limited</p>
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="calendar.html">Calendar</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="news.html">News</a>
+    <a href="areas.html">Areas</a>
+    <a href="reports.html">Reports</a>
+  </div>
+  <p style="margin-top:8px;opacity:0.5;">June 16 – 30, 2026 &nbsp;|&nbsp; A Swachh Bharat Mission Initiative</p>
+</footer>
+
+</body>
+</html>
